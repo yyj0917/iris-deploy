@@ -14,6 +14,7 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    overflow-y: auto;
 `;
 
 export default function CompanyList() {

@@ -126,6 +126,7 @@ export default function Profile() {
     const [isLoading, setLoading] = useState(false);
     const [counter, setCounter] = useState(0);
     const [feedback, setFeedback] = useState("");
+    const [visible, setVisible] = useState(false);
     const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setFeedback(e.target.value);
       };
@@ -135,7 +136,9 @@ export default function Profile() {
         alert("아직 준비중인 기능입니다. 감사합니다.")
     };
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        setVisible(!visible);
         e.preventDefault();
+        console.log(visible)
         const user = auth.currentUser;
         if (!user || isLoading || feedback === "" || feedback.length > 180) return;
         try {
@@ -162,8 +165,13 @@ export default function Profile() {
                 <h4>{state[1]}</h4>
             </div>
             <div className="grid-sidebar">
-                <h2>Email : {state[2]}</h2>
-                <h2>Phone Number : 010 - 1234 - 5678 </h2>
+                {visible 
+                ? <>
+                    <h2>Email : {state[2]}</h2>
+                    <h2>Phone Number : 010 - 1234 - 5678 </h2></>  
+                    : <BeforeFeedback/>}
+                
+                
             </div>
             <div className="grid-feedback">
                 <Form onSubmit={onSubmit}>
@@ -194,5 +202,19 @@ export default function Profile() {
             </div>
             
         </Wrapper>
+    )
+}
+function BeforeFeedback() {
+    return (
+        
+        <h2>피드백을 남겨주시면 정보확인이 가능합니다.</h2>
+    )
+}
+function AfterFeedback(props) {
+    return (
+        <>
+            <h2>Email : {props.state[2]}</h2>
+            <h2>Phone Number : 010 - 1234 - 5678 </h2>
+        </>
     )
 }
