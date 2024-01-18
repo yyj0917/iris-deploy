@@ -1,5 +1,5 @@
 {
-  "name": "iris-deploy",
+  "name": "nwitter-reloaded",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,12 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "reset": "^0.1.0",
+    "styled": "^1.0.0",
+    "styled-components": "^6.0.7",
+    "styled-reset": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
+    "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
